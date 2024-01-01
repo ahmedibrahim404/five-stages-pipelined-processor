@@ -92,10 +92,10 @@ BEGIN
     spDecOut <= spDecIn;
     spIncOut <= spIncIn;
 
-    PcSelect <= '1' when instruction(15 downto 11) = "01001" else '0';
-    PcData <= RS1(15 DOWNTO 0);
+    PcSelect <= '1' when instruction(15 downto 11) = "01001" and z_in = '1' else '0';
+    PcData <= RDst(15 DOWNTO 0);
     
-    cjFlush <= '1' when instruction(15 downto 11) = "01001" else '0';
+    cjFlush <= '1' when instruction(15 downto 11) = "01001" and z_in = '1' else '0';
 
     -- inFlag_temp <= outFlag_temp;
 

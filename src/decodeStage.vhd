@@ -46,12 +46,12 @@ BEGIN
 
     Rdest_out <= Rdest;
 
-    
+
     
     ucjFlush <= '1' when instruction(15 downto 11) = "01010" else '0';
     instruction_out <= instruction;
 
     PcSelect <= '1' when instruction(15 downto 11) = "01010" else '0';
-    PcData <= RS1Data(15 DOWNTO 0);
+    PcData <= RdstData(15 DOWNTO 0);
 
 END decoding;
